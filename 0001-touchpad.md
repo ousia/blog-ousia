@@ -19,3 +19,5 @@ Section "InputClass"
         Option "HorizontalScrolling" "on"
 EndSection
 ```
+
+### Notes
