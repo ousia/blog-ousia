@@ -1,6 +1,6 @@
 ---
 tab: none
-# title:
+title: Scrapbook
 layout: page
 ---
 
