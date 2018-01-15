@@ -4,9 +4,7 @@ title: Scrapbook
 layout: page
 ---
 
-Here you may find random notes of things I don’t want to forget.
-
-Don’t expect too much from these notes. They may contain information about computers or systems in use.
+Here you may find random notes of things I don’t want to forget. Don’t expect too much from these notes. They may contain information about computers or systems in use.
 
 {% assign default_paths = site.pages | map: "path" %}
 {% assign page_paths = site.header_pages | default: default_paths %}
