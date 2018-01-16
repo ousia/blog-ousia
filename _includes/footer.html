@@ -9,7 +9,7 @@
         <ul class="contact-list">
           <li>
             {% if site.author %}
-              Personal website of <a href="{{ site.author.website | escape }}">{{ site.author.name | escape }}</a>.
+              {{ site.title | escape }} by <a href="{{ site.author.website | escape }}">{{ site.author.name | escape }}</a>
             {% else %}
               {{ site.title | escape }}
             {% endif %}
@@ -29,7 +29,7 @@
           {% endif %}
 
           <li>
-            At <a href="https://pages.github.com">GitHub Pages</a>.
+            At <a href="https://pages.github.com">GitHub Pages</a>
           </li>
 
           {% if site.twitter_username %}
