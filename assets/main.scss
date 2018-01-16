@@ -1,0 +1,12 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+code {
+  font-size: 100%;
+}
+
+h3#notas {
+  margin-top: $spacing-unit * 4;
+}
