@@ -23,8 +23,12 @@ This will list all installed packages. To get the alphabetically--ordered list i
 rpm -qa | sort > fedora-27-packages.txt
 ```
 
+The previous file containing the list of installed packages would be useful to manually check what is missing from your installed packages. All packages are listed with their version number.
 
-RPM has a way of doing it right:
+If you want to install all packages automatically (using `dnf install`), you need to have only the package names. The way to do it:
 
+```
+rpm -qa --qf "%{NAME}\n" | sort > fedora-27-packages.txt
+```
 
 ### Notes
