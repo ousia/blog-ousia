@@ -7,6 +7,7 @@ permalink: /0003/
 
 When you donate or sell a computer, you should erase the data it contains before giving it.
 
+<!--
 Formating the hard drive is not enough to make its data unrecoverable. This only erases a small portion of data in your hard disk.
 
 The proper way to do it is to overwrite the whole disk with new data.
@@ -72,3 +73,4 @@ Before proceeding, please take in consideration the following:
 	Since all space in the drive is filled with random data seven times, it is impossible to recover the original data from the drive.
 	
 ### Notes
+-->
