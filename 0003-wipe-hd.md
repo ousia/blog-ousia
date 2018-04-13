@@ -58,7 +58,7 @@ time for n in `seq 7`; time do dd if=/dev/urandom of=/dev/sda bs=8b conv=notrunc
 
 After the operation is performed, all data will be available on the shell.
 
-<!--
+
 ## Before You Start
 
 This method works and leaves all data contained in the hard disk beyond recover.
@@ -73,5 +73,5 @@ Before proceeding, please take in consideration the following:
 
 	Since all space in the drive is filled with random data seven times, it is impossible to recover the original data from the drive.
 	
+
 ### Notes
--->
