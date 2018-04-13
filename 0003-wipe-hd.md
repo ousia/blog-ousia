@@ -7,7 +7,6 @@ permalink: /0003/
 
 When you donate or sell a computer, you should erase the data it contains before giving it.
 
-<!--
 Formating the hard drive is not enough to make its data unrecoverable. This only erases a small portion of data in your hard disk.
 
 The proper way to do it is to overwrite the whole disk with new data.
@@ -36,6 +35,7 @@ There are two methods, one is faster and the other is safer. Writing everything 
 
 Although it takes longer, I’m only explaining the method with random data because of its superior safety.
 
+<!--
 ## Automatic Mode
 
 The following commands need to be run as root (otherwise `/dev/hda` will not be available to be written):
