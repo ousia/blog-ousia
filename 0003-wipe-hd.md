@@ -35,7 +35,6 @@ There are two methods, one is faster and the other is safer. Writing everything 
 
 Although it takes longer, I’m only explaining the method with random data because of its superior safety.
 
-<!--
 ## Automatic Mode
 
 The following commands need to be run as root (otherwise `/dev/hda` will not be available to be written):
@@ -48,6 +47,7 @@ The first command (which is actually a loop) will overwrite the entire hard disk
 
 The second command will shut down the computer after has completed successfully the first command.
 
+<!--
 ## Measured Mode
 
 If you want to measure how much it takes to perform every single disk overwriting and all the data wiping operation, you may want to run as root:
