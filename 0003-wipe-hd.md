@@ -47,7 +47,7 @@ The first command (which is actually a loop) will overwrite the entire hard disk
 
 The second command will shut down the computer after has completed successfully the first command.
 
-<!--
+
 ## Measured Mode
 
 If you want to measure how much it takes to perform every single disk overwriting and all the data wiping operation, you may want to run as root:
@@ -58,6 +58,7 @@ time for n in `seq 7`; time do dd if=/dev/urandom of=/dev/sda bs=8b conv=notrunc
 
 After the operation is performed, all data will be available on the shell.
 
+<!--
 ## Before You Start
 
 This method works and leaves all data contained in the hard disk beyond recover.
