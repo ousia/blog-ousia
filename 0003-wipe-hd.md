@@ -21,7 +21,7 @@ All you need is the following:
 
 [^live-usb]: Any [_Fedora_](https://getfedora.org/) distribution would do fine. Just in case it might help, I used the latest version of [_Fedora LXDE_](https://spins.fedoraproject.org/lxde/).
 
-	[_Fedora Media Writer_](https://github.com/MartinBriza/MediaWriter/releases/latest) is required to save the image to your USB stick
+    [_Fedora Media Writer_](https://github.com/MartinBriza/MediaWriter/releases/latest) is required to save the image to your USB stick
 
 * 24 hours time to perform the operation.
 
@@ -53,7 +53,7 @@ The second command will shut down the computer after has completed successfully 
 If you want to measure how long it takes to perform every single disk overwriting and all the data wiping operation, you may want to run as root:
 
 ```
-time for n in `seq 7`; time do dd if=/dev/urandom of=/dev/sda bs=8b conv=notrunc; done
+time for n in `seq 7`; do time dd if=/dev/urandom of=/dev/sda bs=8b conv=notrunc; done
 ```
 
 After the operation is performed, all data will be available on the shell.
@@ -71,7 +71,7 @@ Before proceeding, please take in consideration the following:
 
 1. Again, once the operation is performed all data in the drive will be lost forever.
 
-	Since all space in the drive is filled with random data seven times, it is impossible to recover the original data from the drive.
-	
+    Since all space in the drive is filled with random data seven times, it is impossible to recover the original data from the drive.
+
 
 ### Notes
