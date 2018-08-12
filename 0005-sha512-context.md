@@ -8,12 +8,11 @@ permalink: /0005/
 Imagine that you have the following list of documents---which are part of the _ConTeXt Suite_---in a CSV file:
 
 ``` tex
-\unexpanded\def\sha#1%
-   {\begingroup\tt
-    \sethyphenationfeatures[sha]%
-    \setuphyphenation[method=traditional]%
-    #1%
-    \endgroup}
+\def\hashtwofile#1{%
+    \ctxlua{context(utilities.sha2.hash256(io.loaddata("#1")))}}
+
+\def\hashfivefile#1{%
+    \ctxlua{context(utilities.sha2.hash512(io.loaddata("#1")))}}
 ```
 
 ```
