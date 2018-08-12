@@ -60,3 +60,119 @@ Imagine that you have the following list of documents---which are part of the _C
 "Dealing with XML in \ConTeXt\ MkIV";"xml-mkiv.pdf"
 "Extreme Tables: \ConTeXt\ MkIV";"xtables-mkiv.pdf"
 ```
+
+``` tex
+\enabledirectives[backend.date=no]
+\enabledirectives[backend.xmp=no]
+
+\startluacode
+function document.addfunnyhyphen(tfmdata)
+    local underscore = utf.byte("_")
+    local char       = tfmdata.characters[underscore]
+    if not char then return end
+    tfmdata.characters[0xFE000]   = {
+        width    = 0,
+        height   = 0,
+        depth    = 0,
+        commands = {
+            { "right", -char.width },
+            { "down", char.depth },
+            { "slot", 1, underscore },
+        }
+    }
+end
+
+
+utilities.sequencers.appendaction("aftercopyingcharacters",
+"after","document.addfunnyhyphen")
+
+local shared = {
+    start  = 1,
+    length = 1,
+    before = utf.char(0xFE000),
+    after  = nil,
+    left   = false,
+    right  = false,
+}
+
+local all = table.setmetatableindex({ }, function(t,k)
+    return shared
+end)
+
+languages.hyphenators.traditional.installmethod("sha",
+    function(dictionary,word,n)
+        return all
+end
+)
+
+function document.capture(cmd, raw)
+    local f = assert(io.popen(cmd, 'r'))
+    local s = assert(f:read('*a'))
+    f:close()
+    if raw then return s end
+    s = string.gsub(s, '^%s+', '')
+    s = string.gsub(s, '%s+$', '')
+    s = string.gsub(s, '[\n\r]+', ' ')
+    return s
+end
+
+function document.sha256(file)
+    command_output= document.capture("sha256sum -b " .. file)
+    context(command_output:sub(0,64))
+end
+
+function document.sha512(file)
+    command_output= document.capture("sha512sum -b " .. file)
+    context(command_output:sub(0,128))
+end
+\stopluacode
+
+\definehyphenationfeatures
+   [sha]
+   [characters=all,
+    alternative=sha,
+    righthyphenchar="FE000]
+
+\unexpanded\def\sha#1%
+   {\begingroup\tt
+    \sethyphenationfeatures[sha]%
+    \setuphyphenation[method=traditional]%
+    #1%
+    \endgroup}
+
+\def\shatwo#1{\ctxlua{document.sha256("#1")}}
+\def\shafive#1{{\tt\ctxlua{document.sha512("#1")}}}
+
+\doif{\luaversion}{5.3}{\ctxlua{require("util-sha")}}
+
+\def\hashtwofile#1{%
+    \ctxlua{context(utilities.sha2.hash256(io.loaddata("#1")))}}
+
+\def\hashfivefile#1{%
+    \ctxlua{context(utilities.sha2.hash512(io.loaddata("#1")))}}
+
+\setupinteraction[state=start, color=, style=, contrastcolor=]
+\setupinteractionscreen[option={portrait, attachment}]
+
+\usemodule[handlecsv]
+
+\opencsvfile{context-documents.csv}
+\removeemptylines
+
+\setupbodyfont[times]
+
+\starttext
+\title{Some Special \ConTeXt\ Documents}
+\startbuffer[item-file]
+\doifelse{\luaversion}{5.3}
+    {\item {\em\cA} \doiffile{\cB}{\attachment[title=\cA, name={\zeroedlineno-\cB}, file={\cB}, subtitle={SHA256: \hashtwofile{\cB}}]}\stopmode, con marca SHA512:}
+    {\item {\em\cA} \doiffile{\cB}{\attachment[title=\cA, name={\zeroedlineno-\cB}, file={\cB}, subtitle={SHA256: \shatwo{\cB}}]}, with SHA512:}
+\doifelse{\luaversion}{5.3}
+    {\doiffileelse{\cB}{\sha{\hashfivefile{\cB}}}{{\ssbf\WORD{\color[red]{\\attachment\\is missing}}}}.}
+    {\doiftextelse{\sha{\shafive{\cB}}}{\sha{\shafive{\cB}}}{{\ssbf\WORD{\color[red]{\\attachment\\is missing}}}}.}
+\stopbuffer
+\startitemize[n]
+\doloopif{\cB}{~=}{}{\getbuffer[item-file]}
+\stopitemize
+\stoptext
+```
