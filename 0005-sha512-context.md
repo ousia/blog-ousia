@@ -32,6 +32,7 @@ Imagine that you have the following list of documents---which are part of the _C
 ;
 "MathML";"mmlprime.pdf"
 "Read Me First";"mreadme.pdf"
+"\ConTeXt\ Musings";"musings.pdf"
 "Nodes";"nodes.pdf"
 "Why Not Now";"notnow.pdf"
 "On and On";"onandon.pdf"
@@ -53,8 +54,7 @@ Imagine that you have the following list of documents---which are part of the _C
 ```
 
 ``` tex
-{% raw %}
-\enabledirectives[backend.date=no]
+{% raw %}\enabledirectives[backend.date=no]
 \enabledirectives[backend.xmp=no]
 
 \startluacode
@@ -157,15 +157,21 @@ end
 \title{Some Special \ConTeXt\ Documents}
 \startbuffer[item-file]
 \doifelse{\luaversion}{5.3}
-    {\item {\em\cA} \doiffile{\cB}{\attachment[title=\cA, name={\zeroedlineno-\cB}, file={\cB}, subtitle={SHA256: \hashtwofile{\cB}}]}\stopmode, con marca SHA512:}
-    {\item {\em\cA} \doiffile{\cB}{\attachment[title=\cA, name={\zeroedlineno-\cB}, file={\cB}, subtitle={SHA256: \shatwo{\cB}}]}, with SHA512:}
+    {\item {\em\cA} \doiffile{\cB}{\attachment[title=\cA,
+      name={\zeroedlineno-\cB}, file={\cB},
+      subtitle={SHA256: \hashtwofile{\cB}}]}\stopmode, with SHA512:}
+    {\item {\em\cA} \doiffile{\cB}{\attachment[title=\cA,
+      name={\zeroedlineno-\cB}, file={\cB},
+      subtitle={SHA256: \shatwo{\cB}}]}, with SHA512:}
 \doifelse{\luaversion}{5.3}
-    {\doiffileelse{\cB}{\sha{\hashfivefile{\cB}}}{{\ssbf\WORD{\color[red]{\\attachment\\is missing}}}}.}
-    {\doiftextelse{\sha{\shafive{\cB}}}{\sha{\shafive{\cB}}}{{\ssbf\WORD{\color[red]{\\attachment\\is missing}}}}.}
+    {\doiffileelse{\cB}{\sha{\hashfivefile{\cB}}}
+        {{\ssbf\WORD{\color[red]{\\attachment\\is missing}}}}.}
+    {\doiftextelse{\sha{\shafive{\cB}}}
+        {\sha{\shafive{\cB}}}
+        {{\ssbf\WORD{\color[red]{\\attachment\\is missing}}}}.}
 \stopbuffer
 \startitemize[n]
 \doloopif{\cB}{~=}{}{\getbuffer[item-file]}
 \stopitemize
-\stoptext
-{% endraw %}
+\stoptext{% endraw %}
 ```
