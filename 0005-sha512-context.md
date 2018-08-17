@@ -39,7 +39,7 @@ Imagine that you have the following list of documents---which are part of the _C
 "Pages";"pagecolumns.pdf"
 "Rules: A \ConTeXt\ MkIV Manual";"rules-mkiv.pdf"
 "Spacing in \ConTeXt";"spacing-mkiv.pdf"
-"Simple Spreadsheets: \ConTeXt\ MkIV";"spreadsheets-mkiv."
+"Simple Spreadsheets: \ConTeXt\ MkIV";"spreadsheets-mkiv.pdf"
 "SQL in \ConTeXt";"sql-mkiv.pdf"
 "Steps: \ConTeXt\ MkIV";"steps-mkiv.pdf"
 "Still Going On";"still.pdf"
@@ -52,6 +52,8 @@ Imagine that you have the following list of documents---which are part of the _C
 "Dealing with XML in \ConTeXt\ MkIV";"xml-mkiv.pdf"
 "Extreme Tables: \ConTeXt\ MkIV";"xtables-mkiv.pdf"
 ```
+
+And you embed them in PDF document, using the following ConTeXt source:
 
 ``` tex
 {% raw %}\enabledirectives[backend.date=no]
