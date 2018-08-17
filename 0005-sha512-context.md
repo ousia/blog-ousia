@@ -7,14 +7,6 @@ permalink: /0005/
 
 Imagine that you have the following list of documents---which are part of the _ConTeXt Suite_---in a CSV file:
 
-``` tex
-\def\hashtwofile#1{%
-    \ctxlua{context(utilities.sha2.hash256(io.loaddata("#1")))}}
-
-\def\hashfivefile#1{%
-    \ctxlua{context(utilities.sha2.hash512(io.loaddata("#1")))}}
-```
-
 ```
 "About \LuaTeX\ and \ConTeXt";"about.pdf"
 "l2r, r2l: A Few Tips";"bidi.pdf"
@@ -61,6 +53,7 @@ Imagine that you have the following list of documents---which are part of the _C
 ```
 
 ``` tex
+{% raw %}
 \enabledirectives[backend.date=no]
 \enabledirectives[backend.xmp=no]
 
@@ -174,4 +167,5 @@ end
 \doloopif{\cB}{~=}{}{\getbuffer[item-file]}
 \stopitemize
 \stoptext
+{% endraw %}
 ```
