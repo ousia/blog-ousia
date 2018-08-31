@@ -190,15 +190,17 @@ The list of 38 documents have to be embedded in the final PDF document and are h
 
 There are two ConTeXt versions (both betas), from 2018.08.28 17:21 and from 2018.08.30 18:41. The first beta comes with LuaTeX-1.08 6731 and the second beta comes with LuaTeX-1.08 6909.
 
+These are the average generation times of full compilations:
+
 |                  | Lua-5.3 | Lua-5.2 (JIT) | Lua-5.2 (JIT)|
 |:-----------------|--------:|--------------:|-------------:|
-| LuaTeX-1.08 6731 |    155″ |         10.6″ |        11.1″ |
+| LuaTeX-1.08 6731 |    160″ |         10.6″ |        11.1″ |
 | LuaTeX-1.08 6909 |    9.9″ |         10.5″ |        11.1″ |
 
 I think that the results might be even better when bitwise operators are provided for LuaJIT.
 
-I know that the `handlecsv` module has an issue with the commands—both in Lua and ConTeXt—that refer to the linepointer in Lua-5.3[^lua-5.3].
+I know that the `handlecsv` module has an issue with the commands—both in Lua and ConTeXt—that refer to the linepointer in Lua-5.3.[^lua-number]
 
-[^lua-5.3]: The basic command `print(10.0)` outputs `10` in Lua-5.2 and `10.0` in Lua-5.3.
+[^lua-number]: The basic command `print(10.0)` outputs `10` in Lua-5.2 and `10.0` in Lua-5.3.
 
     I have reported the issue, but it might take a while to detect where the number was converted to a string type.
