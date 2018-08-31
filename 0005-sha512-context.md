@@ -5,7 +5,7 @@ layout: page
 permalink: /0005/
 ---
 
-### Documents List
+## Document List
 
 Imagine that you have the following list of documents—which are part of the _ConTeXt Suite_—in a CSV file:
 
@@ -55,7 +55,7 @@ Imagine that you have the following list of documents—which are part of the _C
 "Extreme Tables: \ConTeXt\ MkIV";"xtables-mkiv.pdf"
 ```
 
-### ConTeXt Source
+## ConTeXt Source
 
 You may embed them in PDF document, using the following ConTeXt source:
 
@@ -182,7 +182,7 @@ end
 \stoptext{% endraw %}
 ```
 
-### Compilation Times
+## Compilation Times
 
 The code above is something I use at work to submit many digitally signed PDF documents. I want to provide the stronger SHA512, but for reference I also add the SHA256 in the note to the attachment.
 
@@ -203,4 +203,6 @@ I know that the `handlecsv` module has an issue with the commands—both in Lua 
 
 [^lua-number]: The basic command `print(10.0)` outputs `10` in Lua-5.2 and `10.0` in Lua-5.3.
 
-    I have reported the issue, but it might take a while to detect where the number was converted to a string type.
+    I have reported the issue, but it might take a while to detect where the number was converted to a string.
+
+### Notes
