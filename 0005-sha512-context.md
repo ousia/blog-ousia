@@ -5,7 +5,9 @@ layout: page
 permalink: /0005/
 ---
 
-Imagine that you have the following list of documents---which are part of the _ConTeXt Suite_---in a CSV file:
+### Documents List
+
+Imagine that you have the following list of documents—which are part of the _ConTeXt Suite_—in a CSV file:
 
 ```
 "About \LuaTeX\ and \ConTeXt";"about.pdf"
@@ -53,7 +55,9 @@ Imagine that you have the following list of documents---which are part of the _C
 "Extreme Tables: \ConTeXt\ MkIV";"xtables-mkiv.pdf"
 ```
 
-And you embed them in PDF document, using the following ConTeXt source:
+### ConTeXt Source
+
+You may embed them in PDF document, using the following ConTeXt source:
 
 ``` tex
 {% raw %}\enabledirectives[backend.date=no]
@@ -177,3 +181,14 @@ end
 \stopitemize
 \stoptext{% endraw %}
 ```
+
+### Compilation Times
+
+The code above is something I use at work to submit many digitally signed PDF documents. I want to provide the stronger SHA512, but for reference I also add the SHA256 in the note to the attachment.
+
+The list of 38 documents have to be embedded in the final PDF document and are hashed for SHA512 and SHA256[^sha512-sha256].
+
+There are two ConTeXt versions (both betas), from 2018.08.28 17:21 and from 2018.08.30 18:41. The first beta comes with LuaTeX-1.08 6731 and the second beta comes with LuaTeX 1.
+
+
+155 10.6
