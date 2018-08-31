@@ -186,9 +186,17 @@ end
 
 The code above is something I use at work to submit many digitally signed PDF documents. I want to provide the stronger SHA512, but for reference I also add the SHA256 in the note to the attachment.
 
-The list of 38 documents have to be embedded in the final PDF document and are hashed for SHA512 and SHA256[^sha512-sha256].
+The list of 38 documents have to be embedded in the final PDF document and are hashed for SHA512 and SHA256.
 
-There are two ConTeXt versions (both betas), from 2018.08.28 17:21 and from 2018.08.30 18:41. The first beta comes with LuaTeX-1.08 6731 and the second beta comes with LuaTeX 1.
+There are two ConTeXt versions (both betas), from 2018.08.28 17:21 and from 2018.08.30 18:41. The first beta comes with LuaTeX-1.08 6731 and the second beta comes with LuaTeX-1.08 6909.
 
+|                |Lua-5.3|Lua-5.2|Lua-5.2|
+|----------------|-------|-------|-------|
+|LuaTeX-1.08 6731|    155|   10.6|   11.1|
+|LuaTeX-1.08 6909|    9.9|   10.5|   11.1|
 
-155 10.6
+|                  | Lua-5.3 | Lua-5.2 | Lua-5.2 |
+|:-----------------|--------:|--------:|--------:|
+| LuaTeX-1.08 6731 |     155 |    10.6 |    11.1 |
+| LuaTeX-1.08 6909 |     9.9 |    10.5 |    11.1 |
+
